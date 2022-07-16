@@ -1,0 +1,27 @@
+{
+  "name": "yoga-routines-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AminaOti/yoga-routines-api.git"
+  },
+  "author": "Amina Oti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AminaOti/yoga-routines-api/issues"
+  },
+  "homepage": "https://github.com/AminaOti/yoga-routines-api#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.4",
+    "nodemon": "^2.0.19"
+  }
+}
