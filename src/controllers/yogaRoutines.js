@@ -16,10 +16,10 @@ exports.getRoutine = (async (req, res, next) => {
     try {
         await client.connect();
         console.log("Connected successfully to server");
-        const database = client.db('YogaRoutines');
-        const table = database.collection('Routines');
-
-        const query = {};
+        const database = client.db(process.env.DATABASE);
+        const table = database.collection(process.env.COLLECTION_NAME);
+        console.log(req.params.id)
+        const query = { ID: 1 };
         const data = await table.findOne(query);
         res.status(200).json({ success: true, data: data })
     } finally {
