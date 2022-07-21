@@ -2,11 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const router = require('./src/routes');
 const { connectToMongoDB, disconnectFromMongoDB } = require('./src/middleware/middleware')
-//var cors = require('cors');
+var cors = require('cors');
+
 
 const app = express();
 app.locals.title = 'Yoga Routines API'
-//app.use(cors());
+app.use(cors());
 
 app.use(connectToMongoDB)
 
