@@ -38,29 +38,3 @@ exports.getAllRoutines = (async (req, res, next) => {
     }
     next();
 });
-
-
-exports.getAllRoutineTitle = (async (req, res, next) => {
-    console.log(2)
-    const uri = process.env.MONGO_DB_URL
-    const client = new MongoClient(uri);
-    try {
-        const database = client.db(process.env.DATABASE);
-        const table = database.collection(process.env.COLLECTION_NAME);
-        const query = { ID: { $gt: 0 } };
-        const options = {
-            projection: { assetName: 1 },
-        };
-        const data = await table.find(query);
-
-        const dataToArray = await data.toArray()
-
-        const routineTitle = dataToArray.map(routine => routine.title);
-
-        res.status(200).json({ success: true, data: routineTitle })
-
-    } catch (err) {
-        throw err;
-    }
-    next();
-});
